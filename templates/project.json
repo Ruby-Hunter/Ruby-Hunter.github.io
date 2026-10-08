@@ -1,0 +1,15 @@
+{
+  "number": "06",
+  "title": "Your project title",
+  "summary": "A one-sentence explanation of what you built.",
+  "area": "Embedded systems",
+  "platform": "Your hardware or software platform",
+  "focus": "Your main technical focus",
+  "repositories": [],
+  "overview": "Explain the problem, what you built, and your contribution.",
+  "flow": ["Input", "Processing", "Output"],
+  "system_notes": "Explain how data, signals, or power move through your system.",
+  "components": ["First hardware or software component", "Second hardware or software component"],
+  "images": [],
+  "next_project": "/projects/racing-telemetry.html"
+}

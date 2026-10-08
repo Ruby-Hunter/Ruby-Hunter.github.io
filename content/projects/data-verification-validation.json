@@ -1,0 +1,33 @@
+{
+  "number": "04",
+  "title": "Data verification & validation",
+  "summary": "Verifying weather data before sending it to a remote server.",
+  "area": "Embedded & digital logic",
+  "platform": "ESP32 / FPGA",
+  "focus": "CRC / Packetization",
+  "github_url": "",
+  "overview": "An ESP32 and FPGA receive weather data from a peripheral device. The system computes a CRC checksum, packetizes the data, and sends it to a remote server for display.",
+  "flow": [
+    "Weather peripheral",
+    "ESP32 + FPGA",
+    "CRC + Packetization",
+    "Remote server"
+  ],
+  "components": [
+    "Peripheral device supplying weather data.",
+    "ESP32 and FPGA for the data verification system.",
+    "CRC checksum computation and data packetization.",
+    "Remote server for displaying the transmitted data."
+  ],
+  "hero": {
+    "src": "/images/project-data-validation-packet-display.png",
+    "alt": "Telemetry Central Packeting terminal showing input data, a packet, its type, and a 32-bit packet length.",
+    "caption": "Packet display / input data, encoded packet, type, and length",
+    "width": 580,
+    "height": 660
+  },
+  "next_project": "/projects/ecen-340.html",
+  "repositories": [],
+  "collection": "class",
+  "course": "Class project"
+}

@@ -1,0 +1,38 @@
+{
+  "number": "05",
+  "title": "Custom electric motor controller",
+  "summary": "An STM32 motor controller with a custom half-bridge board and resolver feedback.",
+  "area": "Electronics",
+  "platform": "STM32G474 / Half-bridge PCB",
+  "focus": "PWM / Motor drive / Resolver feedback",
+  "github_url": "https://github.com/BYU-Racing/Inverter",
+  "overview": "Control signals from the STM32 drive a custom half-bridge board, which drives the motor. A resolver connected to the motor feeds back into the STM32, closing the control loop.",
+  "components": [
+    "STM32G474 microcontroller with timer PWM outputs, shown in the pinout.",
+    "Custom half-bridge PCB with high-voltage and gate-drive circuitry.",
+    "Motor speed and torque control.",
+    "Resolver feeding motor feedback into the STM32."
+  ],
+  "diagram": {
+    "src": "/images/project-inverter-flow.svg",
+    "alt": "STM32 control to half-bridge board to motor to resolver, with resolver feedback returning to the STM32."
+  },
+  "hero": {
+    "src": "/images/project-inverter-halfbridge-pcb.png",
+    "alt": "Custom half-bridge PCB layout showing high-voltage switching components, gate-drive circuitry, and PWM inputs.",
+    "caption": "Half-bridge PCB layout / power switching and gate-drive circuitry",
+    "width": 1947,
+    "height": 735
+  },
+  "images": [
+    {
+      "src": "/images/project-inverter-pinout.png",
+      "alt": "STM32G474RETx pinout with TIM1 PWM outputs, complementary outputs, SPI1, and SWD pins highlighted.",
+      "caption": "STM32G474 pin assignment / PWM, SPI, and debug connections",
+      "width": 861,
+      "height": 931
+    }
+  ],
+  "next_project": "/projects/racing-telemetry.html",
+  "repositories": []
+}

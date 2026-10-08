@@ -1,0 +1,22 @@
+{
+  "number": "03",
+  "title": "Custom drone flight control",
+  "summary": "Custom flight control software on an STM32F1 microcontroller.",
+  "area": "Firmware",
+  "platform": "STM32F1",
+  "focus": "Balancing / Remote control",
+  "github_url": "https://github.com/Ruby-Hunter/Drone_Project",
+  "overview": "This project develops flight control software for drone balancing and remote control, with an STM32F1 microcontroller as the embedded platform.",
+  "flow": [
+    "Remote input",
+    "STM32F1 firmware",
+    "Flight control"
+  ],
+  "components": [
+    "STM32F1 microcontroller as the firmware platform.",
+    "Flight control software for drone balancing.",
+    "Remote control functionality."
+  ],
+  "next_project": "/projects/data-verification-validation.html",
+  "repositories": []
+}

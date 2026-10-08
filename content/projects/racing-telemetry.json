@@ -1,0 +1,40 @@
+{
+  "number": "01",
+  "title": "BYU Racing live telemetry & data analysis",
+  "summary": "Live CAN and GPS telemetry, visualization, and analysis for BYU Racing's Formula SAE car.",
+  "area": "Telemetry & data",
+  "platform": "Raspberry Pi",
+  "focus": "CAN / GPS / LTE / Web analytics",
+  "github_url": "https://github.com/BYU-Racing/AVA-02",
+  "overview": "Vehicle CAN data and GPS measurements feed a Raspberry Pi through a CAN HAT and GPS module. An LTE HAT streams CAN and corrected GPS data over WebSocket to the AVA web application. FastAPI handles the backend and CANDB conversion, React displays live data, and PostgreSQL stores data for later analysis.",
+  "components": [
+    "Vehicle CAN lines, CAN HAT, and GPS module.",
+    "Raspberry Pi with LTE HAT for telemetry transmission.",
+    "RTK GPS base station for GPS corrections.",
+    "FastAPI backend and CANDB conversion.",
+    "React frontend for live visualization and saved-data analysis.",
+    "PostgreSQL database for stored telemetry."
+  ],
+  "diagram": {
+    "src": "/images/project-racing-flow.svg",
+    "alt": "CAN and GPS enter a Raspberry Pi; LTE connects to FastAPI, React displays live data, PostgreSQL saves data for analysis, and an RTK base supplies GPS corrections."
+  },
+  "hero": {
+    "src": "/images/project-racing-ava.png",
+    "alt": "AVA-02 Advanced Vehicle Analytics title above a rendering of the BYU Racing Formula SAE car.",
+    "caption": "AVA-02 / Advanced Vehicle Analytics by the BYU Racing Electronics Team",
+    "width": 522,
+    "height": 475
+  },
+  "images": [
+    {
+      "src": "/images/project-racing-block-diagram.png",
+      "alt": "Detailed BYU Racing architecture linking car CAN lines and GPS to Raspberry Pi, LTE, RTK corrections, FastAPI, React, and PostgreSQL.",
+      "caption": "Detailed telemetry architecture / onboard acquisition, RTK corrections, live data, and saved-data analysis",
+      "width": 1357,
+      "height": 681
+    }
+  ],
+  "next_project": "/projects/airmo-drone-telemetry.html",
+  "repositories": []
+}

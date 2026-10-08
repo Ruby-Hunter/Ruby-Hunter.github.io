@@ -1,0 +1,15 @@
+{
+  "number": "07",
+  "collection": "class",
+  "course": "COURSE CODE",
+  "title": "Your class project title",
+  "summary": "Explain what you built for this class.",
+  "area": "Course subject",
+  "platform": "Hardware or software used",
+  "focus": "Main technical focus",
+  "repositories": [],
+  "overview": "Describe the assignment, your approach, and your contribution.",
+  "flow": ["Input", "Processing", "Output"],
+  "components": ["First component", "Second component"],
+  "images": []
+}

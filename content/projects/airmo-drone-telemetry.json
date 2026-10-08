@@ -1,0 +1,22 @@
+{
+  "number": "02",
+  "title": "AIRMO drone telemetry system",
+  "summary": "Methane data sent from a UAV over an RF telemetry link to a ground-station display.",
+  "area": "Data acquisition",
+  "platform": "Drone / Ground station",
+  "focus": "Methane data / RF telemetry / Display",
+  "github_url": "",
+  "overview": "Methane measurements are received by the UAV and transmitted over an RF telemetry link. The ground station receives the data and displays it for monitoring.",
+  "components": [
+    "Methane measurement data as the telemetry input.",
+    "UAV receiving and transmitting the measurements.",
+    "RF telemetry link between UAV and ground station.",
+    "Ground-station display for the received data."
+  ],
+  "diagram": {
+    "src": "/images/project-airmo-flow.svg",
+    "alt": "Methane measurements enter the UAV, travel over RF telemetry, and are displayed by the ground station."
+  },
+  "next_project": "/projects/custom-drone-flight-control.html",
+  "repositories": []
+}

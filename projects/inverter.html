@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An STM32 motor controller with a custom half-bridge board and resolver feedback.">
+  <meta name="theme-color" content="#101416">
+  <title>Custom electric motor controller | Blake Hill</title>
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Blake Hill home"><span class="brand-mark">BH<span>&middot;</span></span><span>Blake Hill<span class="brand-caption">COMPUTER ENGINEERING</span></span></a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#class-projects">Classes</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://github.com/Ruby-Hunter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container project-page">
+    <a class="back-link" href="../index.html#projects"><span aria-hidden="true">&#8592;</span> BACK TO PROJECTS</a>
+    <header class="document-header">
+      <p class="eyebrow">PROJECT 05 / ELECTRONICS</p>
+      <h1>Custom electric motor controller</h1>
+      <p class="document-lead">An STM32 motor controller with a custom half-bridge board and resolver feedback.</p>
+      <div class="repository-links" aria-label="Project source repositories"><a class="button repository-link" href="https://github.com/BYU-Racing/Inverter" target="_blank" rel="noopener noreferrer">View source on GitHub <span aria-hidden="true">&#8599;</span></a></div>
+      <dl class="project-metadata">
+        <div><dt>AREA</dt><dd>Electronics</dd></div>
+<div><dt>PLATFORM</dt><dd>STM32G474 / Half-bridge PCB</dd></div>
+<div><dt>FOCUS</dt><dd>PWM / Motor drive / Resolver feedback</dd></div>
+      </dl>
+    </header>
+    <figure class="document-figure project-image">
+      <a href="../images/project-inverter-halfbridge-pcb.png" aria-label="Open full-size image: Custom half-bridge PCB layout showing high-voltage switching components, gate-drive circuitry, and PWM inputs.">
+        <img src="../images/project-inverter-halfbridge-pcb.png" alt="Custom half-bridge PCB layout showing high-voltage switching components, gate-drive circuitry, and PWM inputs." width="1947" height="735">
+      </a>
+      <figcaption>Half-bridge PCB layout / power switching and gate-drive circuitry</figcaption>
+    </figure>
+    <div class="document-body">
+      <nav class="document-nav" aria-label="On this page">
+        <a href="#overview">01 / Overview</a>
+        <a href="#system">02 / System outline</a>
+        <a href="#components">03 / Components</a>
+        <a href="#gallery">04 / Project images</a>
+      </nav>
+      <div class="document-sections">
+        <section id="overview">
+          <p class="eyebrow">01 / OVERVIEW</p><h2>The project</h2>
+          <p>Control signals from the STM32 drive a custom half-bridge board, which drives the motor. A resolver connected to the motor feeds back into the STM32, closing the control loop.</p>
+        </section>
+        <section id="system">
+          <p class="eyebrow">02 / SYSTEM OUTLINE</p><h2>How it connects</h2>
+          <figure class="document-figure flow-figure">
+          <img src="../images/project-inverter-flow.svg" alt="STM32 control to half-bridge board to motor to resolver, with resolver feedback returning to the STM32." width="600" height="330" loading="lazy">
+          <figcaption>System overview / Custom electric motor controller</figcaption>
+        </figure>
+        </section>
+        <section id="components">
+          <p class="eyebrow">03 / COMPONENTS</p><h2>Hardware &amp; software</h2>
+          <ul>
+            <li>STM32G474 microcontroller with timer PWM outputs, shown in the pinout.</li>
+<li>Custom half-bridge PCB with high-voltage and gate-drive circuitry.</li>
+<li>Motor speed and torque control.</li>
+<li>Resolver feeding motor feedback into the STM32.</li>
+          </ul>
+        </section>
+        <section id="gallery">
+          <p class="eyebrow">04 / PROJECT IMAGES</p><h2>A closer look</h2>
+          <div class="project-gallery"><figure class="document-figure project-image">
+      <a href="../images/project-inverter-pinout.png" aria-label="Open full-size image: STM32G474RETx pinout with TIM1 PWM outputs, complementary outputs, SPI1, and SWD pins highlighted.">
+        <img src="../images/project-inverter-pinout.png" alt="STM32G474RETx pinout with TIM1 PWM outputs, complementary outputs, SPI1, and SWD pins highlighted." width="861" height="931" loading="lazy">
+      </a>
+      <figcaption>STM32G474 pin assignment / PWM, SPI, and debug connections</figcaption>
+    </figure></div>
+        </section>
+        <!-- Add design decisions, testing, results, and lessons learned as HTML sections here. -->
+
+        <div class="project-pagination">
+          <a href="../index.html#projects"><span aria-hidden="true">&#8592;</span> All projects</a>
+          <a href="../projects/racing-telemetry.html">Next project <span aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="container site-footer"><a class="footer-name" href="../index.html">Blake Hill<span> / ENGINEERING PORTFOLIO</span></a><a href="#main">Back to top <span aria-hidden="true">&#8593;</span></a></footer>
+</body>
+</html>

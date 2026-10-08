@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" role="img" aria-labelledby="title desc">
+  <title id="title">Closed-loop motor control with resolver feedback</title>
+  <desc id="desc">Control signals travel from an STM32 to a half-bridge board and then to the motor. The motor drives a resolver, which feeds back into the STM32.</desc>
+  <defs>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#443d34"/></pattern>
+    <marker id="control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10" fill="#78dccc"/></marker>
+    <marker id="power" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10" fill="#dfb77c"/></marker>
+  </defs>
+  <rect width="600" height="330" fill="#292420"/><rect width="600" height="330" fill="url(#dots)"/>
+  <g fill="#302922" stroke="#9b8064"><rect x="25" y="92" width="135" height="85" rx="4"/><rect x="235" y="92" width="145" height="85" rx="4"/><circle cx="515" cy="135" r="43"/><rect x="440" y="225" width="150" height="55" rx="4"/></g>
+  <g fill="none" stroke-width="1.5">
+    <path d="M160 135H235" stroke="#78dccc" marker-end="url(#control)"/>
+    <path d="M380 135H472" stroke="#dfb77c" stroke-width="2.5" marker-end="url(#power)"/>
+    <path d="M515 178V225" stroke="#dfb77c" marker-end="url(#power)"/>
+    <path d="M440 252H92V177" stroke="#78dccc" stroke-dasharray="5 4" marker-end="url(#control)"/>
+  </g>
+  <g font-family="Consolas, monospace" text-anchor="middle" fill="#dfc7a9" font-size="14"><text x="92" y="126">STM32</text><text x="307" y="126">HALF-BRIDGE</text><text x="515" y="140">MOTOR</text><text x="515" y="258">RESOLVER</text></g>
+  <g font-family="Consolas, monospace" text-anchor="middle" fill="#bba995" font-size="10"><text x="92" y="152">CONTROL FIRMWARE</text><text x="307" y="152">POWER BOARD</text><text x="198" y="80" fill="#78dccc">CONTROL / PWM</text><text x="426" y="80" fill="#dfb77c">MOTOR DRIVE</text><text x="267" y="237" fill="#78dccc">RESOLVER FEEDBACK</text></g>
+  <g font-family="Consolas, monospace" font-size="10" letter-spacing="1"><text x="25" y="30" fill="#bba995">05 / CUSTOM MOTOR CONTROLLER</text><text x="25" y="310" fill="#bba995">CONTROL / DRIVE / MOTION / FEEDBACK</text></g>
+</svg>

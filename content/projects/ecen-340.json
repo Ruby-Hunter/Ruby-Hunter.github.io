@@ -1,0 +1,17 @@
+{
+  "number": "06",
+  "collection": "class",
+  "course": "ECEn 340",
+  "title": "Electronic Circuit Design",
+  "summary": "Coursework, circuit designs, and project notes from ECEn 340.",
+  "area": "Electronic circuit design",
+  "platform": "Coursework",
+  "focus": "Circuit design",
+  "repositories": [],
+  "overview": "This page collects my coursework and projects for ECEn 340: Electronic Circuit Design. Circuit diagrams, design notes, and results will be added as the projects are documented.",
+  "flow": ["Design", "Build", "Measure"],
+  "system_notes": "A space for documenting each circuit's design and measurements.",
+  "components": ["Project details will be added as coursework is documented."],
+  "images": [],
+  "next_project": "/projects/data-verification-validation.html"
+}
