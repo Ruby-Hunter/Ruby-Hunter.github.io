@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Live CAN and GPS telemetry, visualization, and analysis for BYU Racing&#x27;s Formula SAE car.">
   <meta name="theme-color" content="#101416">
-  <title>BYU Racing live telemetry &amp; data analysis | Blake Hill</title>
+  <title>BYU Racing Live Telemetry &amp; Data Analysis | Blake Hill</title>
   <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
 </head>
@@ -26,13 +26,13 @@
     <a class="back-link" href="../index.html#projects"><span aria-hidden="true">&#8592;</span> BACK TO PROJECTS</a>
     <header class="document-header">
       <p class="eyebrow">PROJECT 01 / TELEMETRY &amp; DATA</p>
-      <h1>BYU Racing live telemetry &amp; data analysis</h1>
+      <h1>BYU Racing Live Telemetry &amp; Data Analysis</h1>
       <p class="document-lead">Live CAN and GPS telemetry, visualization, and analysis for BYU Racing&#x27;s Formula SAE car.</p>
       <div class="repository-links" aria-label="Project source repositories"><a class="button repository-link" href="https://github.com/BYU-Racing/AVA-02" target="_blank" rel="noopener noreferrer">View source on GitHub <span aria-hidden="true">&#8599;</span></a></div>
       <dl class="project-metadata">
         <div><dt>AREA</dt><dd>Telemetry &amp; data</dd></div>
-<div><dt>PLATFORM</dt><dd>Raspberry Pi</dd></div>
-<div><dt>FOCUS</dt><dd>CAN / GPS / LTE / Web analytics</dd></div>
+<div><dt>PLATFORM</dt><dd>Embedded Linux and AWS EC2</dd></div>
+<div><dt>FOCUS</dt><dd>CAN / GPS / Data Transfer / Web analytics</dd></div>
       </dl>
     </header>
     <figure class="document-figure project-image">
@@ -56,19 +56,18 @@
         <section id="system">
           <p class="eyebrow">02 / SYSTEM OUTLINE</p><h2>How it connects</h2>
           <figure class="document-figure flow-figure">
-          <img src="../images/project-racing-flow.svg" alt="CAN and GPS enter a Raspberry Pi; LTE connects to FastAPI, React displays live data, PostgreSQL saves data for analysis, and an RTK base supplies GPS corrections." width="600" height="330" loading="lazy">
-          <figcaption>System overview / BYU Racing live telemetry &amp; data analysis</figcaption>
+          <img src="../images/project-racing-flow.svg" alt="CAN and GPS are received by a Raspberry Pi; LTE connects to FastAPI, React displays live data, PostgreSQL saves data for analysis, and an RTK base supplies GPS corrections." width="600" height="330" loading="lazy">
+          <figcaption>System overview / BYU Racing Live Telemetry &amp; Data Analysis</figcaption>
         </figure>
         </section>
         <section id="components">
           <p class="eyebrow">03 / COMPONENTS</p><h2>Hardware &amp; software</h2>
           <ul>
-            <li>Vehicle CAN lines, CAN HAT, and GPS module.</li>
-<li>Raspberry Pi with LTE HAT for telemetry transmission.</li>
-<li>RTK GPS base station for GPS corrections.</li>
-<li>FastAPI backend and CANDB conversion.</li>
+            <li>Raspberry Pi with LTE HAT, CAN HAT, and GPS module.</li>
+<li>Raspberry Pi base station with GPS module for RTK GPS corrections.</li>
+<li>FastAPI backend and CANDB for data conversion.</li>
 <li>React frontend for live visualization and saved-data analysis.</li>
-<li>PostgreSQL database for stored telemetry.</li>
+<li>PostgreSQL database for data storage.</li>
           </ul>
         </section>
         <section id="gallery">
@@ -81,7 +80,48 @@
     </figure></div>
         </section>
         <!-- Add design decisions, testing, results, and lessons learned as HTML sections here. -->
-
+<h2>Design decisions</h2>
+<p>
+    This project started out simply as a data analytics website hosted at someone's house
+    on a Raspberry Pi. Our team wanted a more stable and accessible hosting platform for it.
+    We decided to host it on AWS EC2 for accessibility, using a Docker container to
+    run it for cross-platform compatibility between devevelopment and production.
+</p>
+<br>
+<p>
+    The car had previously been using LORA to transmit data from the car, but our team
+    lead wanted a direct connection to the cloud, so we decided on a RasPi 4 with an LTE
+    hat to send data to the website and a CAN hat to receive data off the car.
+</p>
+<br>
+<p>
+    To read from the CAN line and the GPS module, we had to decide between using Python
+    and C++. We decided on C++ because all the other CAN code was in C++ and it makes
+    accessing individual bits in data packets easier.
+</p>
+<h2>Testing and results</h2>
+<h4>Connection Tests</h4>
+<p>
+    We tested our full system stack stationary inside, then outside in someone's car. 
+    We tested for packet rate, connection reliability, average downtimes, and what
+    situations caused these.
+    We had problems with the connection dropping, so after confirming the RasPi's 
+    networking and LTE connection were stable, we finally the issue in our reconnect
+    logic. 
+</p>
+<br>
+<h4>Data Display Delay</h4>
+<p>
+    We also tested the delay from our datasource (CAN lines on the RasPi). It started
+    out at about 2 seconds, which was under our 500ms goal. By shrinking the packet
+    size and using a different graphing library, we shrunk it down to under 250ms.
+</p>
+<h2>Lessons learned</h2>
+<p>
+    If I were to redo this project, I would have used a robust RF link directly from the 
+    car, then sent data to the site from the ground station. We found that ensuring a 
+    reliable connection to the car is more important than a direct link to the website.
+</p>
         <div class="project-pagination">
           <a href="../index.html#projects"><span aria-hidden="true">&#8592;</span> All projects</a>
           <a href="../projects/airmo-drone-telemetry.html">Next project <span aria-hidden="true">&#8594;</span></a>

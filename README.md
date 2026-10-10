@@ -6,7 +6,7 @@ No Ruby, Jekyll, pip packages, or npm packages are required.
 
 ## Preview with Live Server
 
-The generated HTML is already in `projects/`, so you can preview immediately:
+The generated HTML is already in `projects/` and `class-projects/`, so you can preview immediately:
 
 1. Open this repository folder in VS Code.
 2. Right-click the root `index.html` and choose **Open with Live Server**, or use
@@ -26,8 +26,10 @@ The site also works by opening `index.html` directly in a browser.
 - `templates/project.html`: shared HTML layout for all project pages.
 - `content/projects/*.json`: project titles, metadata, descriptions, images, and links.
 - `content/projects/*.html`: optional project-specific engineering story sections.
+- `content/class-projects/*.json` and `*.html`: class project metadata and stories.
 - `scripts/build_projects.py`: generator and optional watch mode.
 - `projects/*.html`: generated pages. Edit the source content, not these outputs.
+- `class-projects/*.html`: generated class pages. Edit their source content instead.
 - `images/project-*`: supplied project images and SVG diagrams.
 
 ## Rebuild after changing project content
@@ -93,15 +95,15 @@ ratio, and clicking them opens the full-size version.
 The homepage has a separate **Class projects** section, linked by **Classes** in
 navigation. Data verification lives there, alongside the ECEn 340 course notebook.
 
-1. Copy `templates/class-project.json` to `content/projects/your-class-project.json`.
-2. Keep `"collection": "class"`. Set `course` to the course code, and fill in the
+1. Copy `templates/class-project.json` to `content/class-projects/your-class-project.json`.
+2. The source folder determines the collection. Set `course` to the course code, and fill in the
    title, summary, overview, and other project fields. A course notebook can use
    its course name as the title and contain several labs or project write-ups.
-3. Optionally add `content/projects/your-class-project.html` for longer explanations,
+3. Optionally add `content/class-projects/your-class-project.html` for longer explanations,
    diagrams, or links to individual lab/project pages. Use `templates/project-story.html`
    as a starting point.
 4. Run `python scripts/build_projects.py`, or use watch mode. The generator creates
-   the project page **and its homepage class-project card automatically**.
+   `class-projects/your-class-project.html` **and its homepage class-project card automatically**.
 
 The `course` field appears on the homepage card and in the page metadata. For a
 class project without a course code yet, use `"course": "Class project"`.
@@ -112,9 +114,10 @@ those markers intact. Other homepage sections remain manually editable.
 
 ## Publish on GitHub Pages
 
-Commit the source files and generated `projects/*.html` together. For branch-based
+Commit the source files and generated `projects/*.html` and `class-projects/*.html` together. For branch-based
 GitHub Pages, publish this repository's root folder. `.nojekyll` tells GitHub to
 serve the regular HTML without applying Jekyll. No build command is needed on GitHub.
 
 All generated local links are relative, so the pages also work under a repository
-subpath. Public project page URLs remain `projects/project-name.html`.
+subpath. Main project URLs use `projects/project-name.html`; class project URLs use
+`class-projects/project-name.html`.

@@ -1,1 +1,43 @@
 <!-- Add design decisions, testing, results, and lessons learned as HTML sections here. -->
+<h2>Design decisions</h2>
+<p>
+    This project started out simply as a data analytics website hosted at someone's house
+    on a Raspberry Pi. Our team wanted a more stable and accessible hosting platform for it.
+    We decided to host it on AWS EC2 for accessibility, using a Docker container to
+    run it for cross-platform compatibility between devevelopment and production.
+</p>
+<br>
+<p>
+    The car had previously been using LORA to transmit data from the car, but our team
+    lead wanted a direct connection to the cloud, so we decided on a RasPi 4 with an LTE
+    hat to send data to the website and a CAN hat to receive data off the car.
+</p>
+<br>
+<p>
+    To read from the CAN line and the GPS module, we had to decide between using Python
+    and C++. We decided on C++ because all the other CAN code was in C++ and it makes
+    accessing individual bits in data packets easier.
+</p>
+<h2>Testing and results</h2>
+<h4>Connection Tests</h4>
+<p>
+    We tested our full system stack stationary inside, then outside in someone's car. 
+    We tested for packet rate, connection reliability, average downtimes, and what
+    situations caused these.
+    We had problems with the connection dropping, so after confirming the RasPi's 
+    networking and LTE connection were stable, we finally the issue in our reconnect
+    logic. 
+</p>
+<br>
+<h4>Data Display Delay</h4>
+<p>
+    We also tested the delay from our datasource (CAN lines on the RasPi). It started
+    out at about 2 seconds, which was under our 500ms goal. By shrinking the packet
+    size and using a different graphing library, we shrunk it down to under 250ms.
+</p>
+<h2>Lessons learned</h2>
+<p>
+    If I were to redo this project, I would have used a robust RF link directly from the 
+    car, then sent data to the site from the ground station. We found that ensuring a 
+    reliable connection to the car is more important than a direct link to the website.
+</p>

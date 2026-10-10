@@ -1,23 +1,22 @@
 {
   "number": "01",
-  "title": "BYU Racing live telemetry & data analysis",
+  "title": "BYU Racing Live Telemetry & Data Analysis",
   "summary": "Live CAN and GPS telemetry, visualization, and analysis for BYU Racing's Formula SAE car.",
   "area": "Telemetry & data",
-  "platform": "Raspberry Pi",
-  "focus": "CAN / GPS / LTE / Web analytics",
+  "platform": "Embedded Linux and AWS EC2",
+  "focus": "CAN / GPS / Data Transfer / Web analytics",
   "github_url": "https://github.com/BYU-Racing/AVA-02",
   "overview": "Vehicle CAN data and GPS measurements feed a Raspberry Pi through a CAN HAT and GPS module. An LTE HAT streams CAN and corrected GPS data over WebSocket to the AVA web application. FastAPI handles the backend and CANDB conversion, React displays live data, and PostgreSQL stores data for later analysis.",
   "components": [
-    "Vehicle CAN lines, CAN HAT, and GPS module.",
-    "Raspberry Pi with LTE HAT for telemetry transmission.",
-    "RTK GPS base station for GPS corrections.",
-    "FastAPI backend and CANDB conversion.",
+    "Raspberry Pi with LTE HAT, CAN HAT, and GPS module.",
+    "Raspberry Pi base station with GPS module for RTK GPS corrections.",
+    "FastAPI backend and CANDB for data conversion.",
     "React frontend for live visualization and saved-data analysis.",
-    "PostgreSQL database for stored telemetry."
+    "PostgreSQL database for data storage."
   ],
   "diagram": {
     "src": "/images/project-racing-flow.svg",
-    "alt": "CAN and GPS enter a Raspberry Pi; LTE connects to FastAPI, React displays live data, PostgreSQL saves data for analysis, and an RTK base supplies GPS corrections."
+    "alt": "CAN and GPS are received by a Raspberry Pi; LTE connects to FastAPI, React displays live data, PostgreSQL saves data for analysis, and an RTK base supplies GPS corrections."
   },
   "hero": {
     "src": "/images/project-racing-ava.png",

@@ -1,0 +1,36 @@
+{
+  "number": "06",
+  "collection": "class",
+  "course": "ECEn 340",
+  "title": "Electronic Circuit Design",
+  "summary": "A laser tag receiver circuit I designed and physically built, plus op-amp gain-bandwidth analysis for ECEn 340.",
+  "area": "Electronic circuit design",
+  "platform": "Analog circuits",
+  "focus": "Receiver design / Op-amp GBW",
+  "repositories": [],
+  "overview": "For ECEn 340: Electronic Circuit Design, I designed and physically built a circuit for a laser tag receiver. The schematic above documents the receiver design, including its input circuitry and op-amp band-pass filter stages.\n\nI also analyzed an op-amp's gain-bandwidth product (GBW), examining how its gain changes with frequency. The analysis is shown in the project image below.",
+  "flow": ["Design", "Build", "Measure"],
+  "system_notes": "The receiver project took me from circuit design and simulation to a physical build. The separate op-amp analysis focused on frequency response and gain-bandwidth product.",
+  "components": [
+    "Laser tag receiver circuit: designed and physically built by me.",
+    "Op-amp band-pass filter stages in the receiver design.",
+    "Separate op-amp gain-bandwidth product (GBW) analysis."
+  ],
+  "hero": {
+    "src": "/images/ecen-340_laser-tag_recv.png",
+    "alt": "Laser tag receiver schematic with input circuitry, two op-amp band-pass filter stages, and simulation waveforms.",
+    "caption": "Laser tag receiver / schematic for the circuit I designed and physically built in ECEn 340.",
+    "width": 1876,
+    "height": 1233
+  },
+  "images": [
+    {
+      "src": "/images/ecen-340_opamp_gbw_analysis.png",
+      "alt": "Op-amp circuit simulation and frequency-response plots used to analyze gain-bandwidth product (GBW).",
+      "caption": "Op-amp analysis / examining frequency response to analyze gain-bandwidth product (GBW).",
+      "width": 1855,
+      "height": 1197
+    }
+  ],
+  "next_project": "/class-projects/data-verification-validation.html"
+}

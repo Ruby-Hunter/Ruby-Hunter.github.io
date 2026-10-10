@@ -8,13 +8,12 @@ from pathlib import Path
 from string import Template
 
 ROOT = Path(__file__).resolve().parent.parent
-CONTENT = ROOT / "content" / "projects"
+COLLECTIONS = ("projects", "class-projects")
 TEMPLATE = ROOT / "templates" / "project.html"
-OUTPUT = ROOT / "projects"
 
 
 def local_path(path):
-    """Convert site paths to relative links from the projects folder."""
+    """Convert site paths to relative links from either project output folder."""
     return "../" + path.lstrip("/")
 
 
@@ -110,7 +109,7 @@ def class_project_card(project, slug):
     title = escape(project["title"])
     course = escape(project.get("course", "Class project"))
     summary = escape(project["summary"])
-    url = f"projects/{slug}.html"
+    url = f"class-projects/{slug}.html"
     hero = project.get("hero")
     if hero:
         src = escape(hero["src"].lstrip("/"))
@@ -131,21 +130,24 @@ def class_project_card(project, slug):
 
 def build():
     template = Template(TEMPLATE.read_text(encoding="utf-8"))
-    OUTPUT.mkdir(exist_ok=True)
     changed = 0
     class_cards = []
-    for source in sorted(CONTENT.glob("*.json")):
-        project = json.loads(source.read_text(encoding="utf-8"))
-        story_path = source.with_suffix(".html")
-        story = story_path.read_text(encoding="utf-8") if story_path.exists() else ""
-        result = render_project(project, story, template)
-        if project.get("collection") == "class":
-            class_cards.append(class_project_card(project, source.stem))
-        destination = OUTPUT / (source.stem + ".html")
-        # Unchanged files stay untouched so Live Server doesn't reload needlessly.
-        if not destination.exists() or destination.read_text(encoding="utf-8") != result:
-            destination.write_text(result, encoding="utf-8")
-            changed += 1
+    for collection in COLLECTIONS:
+        output = ROOT / collection
+        output.mkdir(exist_ok=True)
+        for source in sorted((ROOT / "content" / collection).glob("*.json")):
+            project = json.loads(source.read_text(encoding="utf-8"))
+            project["collection"] = "class" if collection == "class-projects" else "main"
+            story_path = source.with_suffix(".html")
+            story = story_path.read_text(encoding="utf-8") if story_path.exists() else ""
+            result = render_project(project, story, template)
+            if collection == "class-projects":
+                class_cards.append(class_project_card(project, source.stem))
+            destination = output / (source.stem + ".html")
+            # Unchanged files stay untouched so Live Server doesn't reload needlessly.
+            if not destination.exists() or destination.read_text(encoding="utf-8") != result:
+                destination.write_text(result, encoding="utf-8")
+                changed += 1
     # Only replace the marked class-card area; keep the rest of the homepage intact.
     homepage = ROOT / "index.html"
     original = homepage.read_text(encoding="utf-8")
@@ -160,7 +162,11 @@ def build():
 
 
 def source_changes():
-    files = [TEMPLATE] + list(CONTENT.glob("*.json")) + list(CONTENT.glob("*.html"))
+    files = [TEMPLATE]
+    for collection in COLLECTIONS:
+        content = ROOT / "content" / collection
+        files.extend(content.glob("*.json"))
+        files.extend(content.glob("*.html"))
     return {file: file.stat().st_mtime_ns for file in files}
 
 
