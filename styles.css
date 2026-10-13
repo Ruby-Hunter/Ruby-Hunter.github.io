@@ -36,6 +36,11 @@ nav { display: flex; gap: 32px; font-size: 13px; }
 nav a:last-child { color: var(--muted); }
 .hero { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 58px; padding-block: 100px 88px; }
 h1 { font-size: clamp(42px, 4.6vw, 64px); line-height: 1.1; letter-spacing: -2.8px; font-weight: 600; margin-top: 25px; }
+.hero > div { min-width: 0; }
+.hero-identity h1 { font-size: clamp(56px, 7.5vw, 96px); line-height: 1.05; letter-spacing: -3px; }
+.hero-major { margin-top: 22px; font-size: clamp(24px, 2.8vw, 36px); line-height: 1.25; font-weight: 500; color: var(--accent); letter-spacing: -.8px; }
+.hero-student { display: block; margin-top: 10px; font: 13px/1.5 var(--mono); letter-spacing: 1.5px; color: var(--muted); }
+.hero-tagline { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.15; letter-spacing: -1.4px; font-weight: 500; }
 .cursor { font-weight: 400; animation: blink 1.5s step-end infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .hero-description { font-size: 16px; color: var(--muted); max-width: 450px; margin-top: 26px; }
@@ -44,12 +49,6 @@ h1 { font-size: clamp(42px, 4.6vw, 64px); line-height: 1.1; letter-spacing: -2.8
 .button-primary { background: var(--accent); border-color: var(--accent); color: #10221e; }
 .button-primary:hover { background: #a0eadd; color: #10221e; }
 .text-link { font-size: 13px; display: inline-flex; gap: 15px; align-items: center; }
-.hero-note { font: 9px var(--mono); color: #849398; letter-spacing: 1.5px; margin-top: 44px; }
-.hero-visual { border: 1px solid var(--border); background: #141a1d; transform: rotate(-2deg); }
-.panel-label, .hero-visual figcaption { display: flex; justify-content: space-between; gap: 10px; padding: 16px; font: 9px/1.5 var(--mono); color: var(--muted); letter-spacing: .6px; }
-.panel-label { border-bottom: 1px solid var(--border); }
-.system-diagram { width: 100%; height: auto; display: block; }
-.hero-visual figcaption { border-top: 1px solid var(--border); font-size: 8px; }
 .discipline-strip { border-block: 1px solid var(--border); }
 .discipline-strip .container { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 21px; font: 12px var(--mono); color: var(--muted); }
 .strip-plus { color: var(--accent); }
@@ -153,7 +152,6 @@ h3 a span { font: 20px var(--mono); color: var(--accent); }
   .hero { gap: 30px; padding-block: 70px; }
   h1 { font-size: 46px; letter-spacing: -2px; }
   .hero-actions { gap: 20px; }
-  .panel-label { font-size: 7px; }
   .control-diagram { gap: 8px; }
   .project-content { padding: 24px; }
   .packet-diagram span { padding: 20px 10px; }
@@ -165,11 +163,12 @@ h3 a span { font: 20px var(--mono); color: var(--accent); }
   .brand-mark { width: 37px; height: 37px; font-size: 15px; }
   .brand-caption { font-size: 7px; letter-spacing: .7px; }
   .header-inner > nav { width: 100%; justify-content: space-between; gap: 16px; font-size: 12px; }
-  .hero { grid-template-columns: 1fr; gap: 45px; padding-block: 55px; }
+  .hero { grid-template-columns: 1fr; gap: 36px; padding-block: 48px; }
   h1 { font-size: clamp(40px, 8vw, 58px); }
-  .hero-visual { max-width: 500px; width: 100%; justify-self: center; transform: none; }
-  .panel-label { font-size: 9px; }
-  .hero-note { margin-top: 28px; }
+  .hero-identity h1 { font-size: clamp(52px, 12vw, 80px); letter-spacing: -2px; }
+  .hero-major { font-size: clamp(23px, 5.5vw, 32px); margin-top: 16px; }
+  .hero-description { margin-top: 20px; }
+  .hero-actions { margin-top: 24px; }
   .discipline-strip .container { flex-wrap: wrap; justify-content: center; gap: 12px 18px; font-size: 10px; }
   .strip-plus { display: none; }
   .projects-section { padding-block: 55px; }
@@ -196,7 +195,6 @@ h3 a span { font: 20px var(--mono); color: var(--accent); }
   .brand-mark { width: 30px; height: 30px; }
   .project-content { padding: 20px; }
   .project-visual { padding: 20px 16px; }
-  .panel-label { font-size: 7px; }
   .packet-diagram { font-size: 9px; }
   .control-diagram strong { font-size: 13px; padding: 20px 10px; }
 }
