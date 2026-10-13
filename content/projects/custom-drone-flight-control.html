@@ -1,1 +1,26 @@
 <!-- Add design decisions, testing, results, and lessons learned as HTML sections here. -->
+<h2>Design decisions</h2>
+<p>
+    The goal of this project was to make a self-balancing drone. I also wanted experience
+    working with different types of sensors and with a STM32 microcontroller. As such,
+    I decided to build the drone from scratch, creating the circuitry and physical design
+    myself rather than use a Pixhawk. I had experience with SynchSM's and PID algorithms,
+    so I decided to use these for motor control and balancing rather than a Kalman filter
+    for simpler development.
+</p>
+<h2>Testing and results</h2>
+<p>
+    This project took some extensive testing. I tested every single part of the system as
+    I developed it, starting with reading basic PWM outputs and I2C data with a Saleae
+    logic analyzer, to testing the balancing algorithm in-flight. 
+</p>
+<br>
+<p>
+    One of the main issues
+    I ran into was with getting accurate sensor readings. They suffered from several 
+    problems, mostly to do with vibration, causing IMU readings to go way off-course. 
+    After testing several hardware and software solutions, a good situation was found by
+    adding vibration-resistance screws and applying the MPU6050 library's software 
+    low-pass filter.
+</p>
+<!-- <h2>Lessons learned</h2> -->
