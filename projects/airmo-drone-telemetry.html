@@ -69,11 +69,26 @@
 <h2>Design decisions</h2>
 <p>The first major consideration in this project was how to get data from the drone to the ground.
 I first thought of LTE, as I had used Websockets in previous projects, but LTE did not match
-the project specifica</p>
-<!-- Explain a choice and its tradeoffs. -->
+the project specifications. A direct connection to our viewing laptop was wanted. As the main
+concern here was reliability, we settled on the Digi XBee SX 868. It occupied a legal
+European band, was extremely reliable, and was easy to interact with in code. 
+</p>
+<br>
+<p>
+    The next question was how the data we had should be visually displayed. I looked at a couple
+    of options, such as a custom React display or graphing software. I decided on Grafana, as 
+    it is customizable, easy to use, and interacts with databases seamlessly.
+</p>
 <h2>Testing and results</h2>
-<!-- Describe your test setup and include measured results. -->
-<h2>Lessons learned</h2>
+<p>
+    I tested every aspect of this system, starting with datarate to the graphs, 
+    readings-to-display lag, database lag, and reliability with physical objects blocking 
+    at various distances. Due to European laws on RF bands, we could only have a reliable 
+    packet rate of 2 Hz, but it was extremely reliable. I found it had no problems behind 
+    smaller objects like trees up to 300m, and it worked well with line of sight past 
+    1km, which was our specification.
+</p>
+<!-- <h2>Lessons learned</h2> -->
 <!-- Explain what you would improve or do differently next time. -->
 
         <div class="project-pagination">
