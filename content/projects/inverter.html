@@ -1,1 +1,31 @@
 <!-- Add design decisions, testing, results, and lessons learned as HTML sections here. -->
+<h2>Design decisions</h2>
+<p>
+    Our goal was to make a motor inverter from scratch for our Cascadia Motion CM200DX motor
+    controller. The first important component we looked at was high-current power transfer. 
+    As this is a high-voltage motor controller, we need high voltage and current to flow 
+    through some of our circuits, so we had to take into account trace width, electrical
+    characteristics of components, and heat transfer.
+</p>
+<br>
+<p>
+    When creating our first half-bridge board, we chose high-power MOSFETs to control
+    power, and due to current limits with our components, we used two MOSFETs for both
+    high and low switching with heat sinking on the back. 
+</p>
+<br>
+<p>
+    For the control scheme, we had to link the high-power gate driver circuit to a 
+    Microcontroller, but didn't want our high power to leak into it if things went wrong.
+    So we electrically isolated it using an optocoupler and separate ground, protecting its
+    delicate circuitry.
+</p>
+<br>
+<p>
+    As for the microcontroller, I was in charge of choosing it and writing code for it. I
+    landed on the STM32G474 due to its reliable timers and PWM, multiple accurate ADCs, speed,
+    deadtime capabilities, and general speed. It also has heritage as a motor controller used
+    specifically for this purpose, and I had had STM32 experience, so it was the obvious choice.
+    In order to ensure proper timing for tasks, we decided on FreeRTOS as a framework, with
+    tasks for motor control, ADC reading, synthesis, and reading/writing CAN frames.
+</p>

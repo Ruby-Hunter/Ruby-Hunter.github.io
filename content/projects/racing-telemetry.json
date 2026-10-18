@@ -2,7 +2,7 @@
   "number": "01",
   "title": "BYU Racing Live Telemetry & Data Analysis",
   "summary": "Live CAN and GPS telemetry, visualization, and analysis for BYU Racing's Formula SAE car.",
-  "area": "Telemetry & data",
+  "area": "Telemetry & Data, Systems Engineering",
   "platform": "Embedded Linux and AWS EC2",
   "focus": "CAN / GPS / Data Transfer / Web analytics",
   "github_url": "https://github.com/BYU-Racing/AVA-02",
@@ -12,7 +12,8 @@
     "Raspberry Pi base station with GPS module for RTK GPS corrections.",
     "FastAPI backend and CANDB for data conversion.",
     "React frontend for live visualization and saved-data analysis.",
-    "PostgreSQL database for data storage."
+    "PostgreSQL database for data storage.",
+    "Self-defined CAN IDs and CANDB file for CAN parsing on embedded and web systems."
   ],
   "diagram": {
     "src": "/images/project-racing-flow.svg",
